@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telescope Camera Control</title>
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/camera.css">
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <h1>Telescope Camera Control</h1>
+            <div class="status-bar">
+                <div class="camera-status-indicator">
+                    <span id="connection-status">Disconnected</span>
+                </div>
+                <div class="battery-info">
+                    Battery: <span id="battery-level">--</span>
+                </div>
+            </div>
+        </header>
+        
+        <main class="main-content">
+            <!-- Camera Preview Section -->
+            <section class="camera-preview">
+                <div id="live-preview-container">
+                    <img id="live-preview" alt="Camera Preview" />
+                    <div class="preview-controls">
+                        <button id="snapshot-btn">Snapshot</button>
+                        <button id="focus-btn">Auto Focus</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Camera Controls Section -->
+            <section class="camera-controls">
+                <div class="camera-info">
+                    <div class="camera-model" id="camera-model">No camera connected</div>
+                    <div class="storage-info" id="storage-info"></div>
+                </div>
+                
+                <div class="settings-panel">
+                    <h3>Camera Settings</h3>
+                    
+                    <div class="setting-group">
+                        <label for="iso-select">ISO</label>
+                        <select id="iso-select" disabled>
+                            <option value="">Auto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="aperture-select">Aperture</label>
+                        <select id="aperture-select" disabled>
+                            <option value="">Auto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="shutter-speed-select">Shutter Speed</label>
+                        <select id="shutter-speed-select" disabled>
+                            <option value="">Auto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="white-balance-select">White Balance</label>
+                        <select id="white-balance-select" disabled>
+                            <option value="">Auto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="exposure-mode-select">Exposure Mode</label>
+                        <select id="exposure-mode-select" disabled>
+                            <option value="">Auto</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="capture-controls">
+                    <button id="capture-btn" class="capture-button" disabled>Capture</button>
+                    <button id="connect-btn">Connect Camera</button>
+                    <div class="focus-controls">
+                        <button id="auto-focus-btn" disabled>Auto Focus</button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- File Manager Section -->
+            <section class="file-manager">
+                <div class="file-manager-header">
+                    <h3>Captured Images</h3>
+                    <div class="file-stats">
+                        <span id="file-count">0 images</span>
+                        <span id="storage-used">0 MB used</span>
+                    </div>
+                </div>
+                
+                <div id="image-gallery" class="image-gallery">
+                    <div class="gallery-placeholder">
+                        <p>No images captured yet</p>
+                        <p class="gallery-hint">Connect your camera and start capturing!</p>
+                    </div>
+                </div>
+                
+                <div class="file-actions">
+                    <button id="refresh-btn">Refresh</button>
+                    <button id="download-all-btn" disabled>Download All</button>
+                    <button id="clear-all-btn" disabled>Clear All</button>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Processing...</div>
+        </div>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Scripts -->
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>

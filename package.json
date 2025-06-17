@@ -1,0 +1,21 @@
+{
+    "name": "camera-webapp-frontend",
+    "version": "1.0.0",
+    "description": "Telescope Camera Control Interface",
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "serve": "python -m http.server 8080 --directory src\frontend",
+        "dev": "concurrently \"npm run watch\" \"npm run serve\"",
+        "lint": "eslint frontend/scripts/**/*.ts",
+        "clean": "rm -rf frontend/scripts/**/*.js frontend/scripts/**/*.js.map"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
+        "@typescript-eslint/parser": "^6.0.0",
+        "concurrently": "^8.0.0",
+        "eslint": "^8.0.0",
+        "typescript": "^5.8.3"
+    }
+}

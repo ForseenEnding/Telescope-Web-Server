@@ -1,0 +1,76 @@
+.camera-status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-size: 0.875rem;
+}
+
+.camera-status-indicator::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.focus-controls {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.exposure-meter {
+    background-color: var(--bg-tertiary);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-sm);
+    margin: var(--spacing-sm) 0;
+}
+
+.exposure-bar {
+    height: 4px;
+    background: linear-gradient(
+        to right,
+        var(--accent-blue) 0%,
+        var(--accent-green) 50%,
+        var(--accent-red) 100%
+    );
+    border-radius: 2px;
+    position: relative;
+}
+
+.exposure-indicator {
+    position: absolute;
+    top: -2px;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    transition: var(--transition);
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--text-secondary);
+    border-radius: 50%;
+    border-top-color: var(--accent-blue);
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
